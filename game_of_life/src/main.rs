@@ -80,9 +80,7 @@ fn main() {
     let mut map = setup_map(arguments);
     map_tools::display_map(&map);
     for _i in 0..1000 {
-        for _j in 0..map.len() {
-            println!("");
-        }
+        print!("{esc}c", esc = 27 as char);
         map_tools::display_map(&map);
         std::thread::sleep(std::time::Duration::from_millis(1000 / speed));
         map = step::step(&map);
